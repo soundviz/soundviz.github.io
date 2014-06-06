@@ -111,14 +111,15 @@ _SoundViz R9_
 
 * Adjust speed of replay
 * First/Next/Prev/Last frame buttons
+* Provide frame by frame movement
 * Add logarithmic vertical scale
 * Enhance rendering, shading and lighting
-* Provide frame by frame movement
+* Add Michele's abstract to readme
 
 
 ## Issues /Bugs
 
-
+* Specular light is too bright
 
 ## Project Links
 

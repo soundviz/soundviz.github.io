@@ -1,4 +1,4 @@
-[soundViz](./index.html )
+[SoundViz](./index.html )
 ===
 
 <p id=rm >
