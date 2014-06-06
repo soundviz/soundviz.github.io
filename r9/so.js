@@ -62,12 +62,12 @@
 			'<h4>Translates numerical sound data in ASCII format to 3D animations viewable in your browser</h4>' +
 			'<p>Data made available via  Dr Michele Ducceschi\'s research on wave turbulence in elastic plates. See also:</p>' +
 			'<ul>' +
-				'<li><a href="http://www.msc.univ-paris-diderot.fr/~berhanu/Ducceschi.pdf" target="_blank">Numerical Simulations of Wave Turbulence in Elastic Plates Using aFinite Difference Code</a></li>' +
 				'<li><a href="http://www.ness-music.eu/wp-content/uploads/2013/06/ducceschi_michele.pdf" target="_blank">Numerical Simulations of Wave Turbulence in Vibrating Plates</a></li>' +
+				'<li><a href="http://www.msc.univ-paris-diderot.fr/~berhanu/Ducceschi.pdf" target="_blank">Numerical Simulations of Wave Turbulence in Elastic Plates Using aFinite Difference Code</a></li>' +
 			'</ul>' +
 
 			'<small>' +
-				'<a href="https://github.com/jaanga/xxxxxxxxxxxxxx" target="_blank">Source code</a> ' +
+				'<a href="https://github.com/soundviz/" target="_blank">Source code</a> ' +
 				'Credits: <a href="http://threejs.org" target="_blank">three.js</a> - ' +
 				'<a href="http://khronos.org/webgl/" target="_blank">WebGL</a> - ' +
 				'<a href="http://soundviz.github.io" target="_blank">SoundViz</a><br>' +
