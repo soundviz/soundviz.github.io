@@ -12,10 +12,10 @@ _SoundViz R9_
 
 * Adds access to online sample files
 * Adds three online samples
-* Name changed
+* Name change to SoundViz
  
 
-[Sonichele R8 - full screen]( http://theo-armour.github.io/cookbook/sonichele/r8/sonichele-r8.html ) 
+[Sonichele R8 - full screen]( http://soundviz.github.io/r8/sonichele-r8.html ) 
 
 * Adds lights and shadows along with a settings dialog
 	* Toggle dispplay of lights
@@ -26,7 +26,7 @@ _SoundViz R9_
 * Tries to adjust for height and number of segments automatically
 
 
-[Sonichele R7 - full screen]( http://theo-armour.github.io/cookbook/sonichele/r7/sonichele-r7.html ) 
+[Sonichele R7 - full screen]( http://soundviz.github.io/r7/sonichele-r7.html ) 
 
 * Back to reading CSV files
 * Uses HTML 5 File Reader - so you can open ONE file at a time
@@ -127,9 +127,9 @@ Scripts are hosted on GitHub and are viewable as web pages, as described in the 
 
 The three ways of looking at or using the scripts:
 
-1. [Live Demo]( http://theo-armour.github.io/cookbook/sonichele/latest/index.html )  
-2. [Read Me]( http://theo-armour.github.io/cookbook/sonichele/ "view the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >   
-3. [Source Code]( https://github.com/theo-armour/cookbook/tree/gh-pages/sonichele/ "View the files as source code." ) <scan style=display:none ><< You are now probably here.</scan>  
+1. [Live Demo]( http://soundviz.github.io/latest/index.html )  
+2. [Read Me]( http://soundviz.github.io/ "view the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >   
+3. [Source Code]( https://github.com/soundviz/ "View the files as source code." ) <scan style=display:none ><< You are now probably here.</scan>  
 
 ### System Requirements
 
@@ -147,11 +147,15 @@ Bugs on browsers other than Chrome need not be reported until such time as the w
 
 ### Copyright and License
 
-[theo-armour copyright notice and license]( https://github.com/theo-armour/theo-armour.github.io/blob/master/copyright-notice-and-license.md )
+[SoundViz copyright notice and license]( https://github.com/soundviz/copyright-notice-and-license.md )
 
 This repository contains files that are at an early and volatile stage. Not all licensing requirements may have been fully met let alone identified. It is the intension of the authors to play fair and all such requirements will either be met or the feature in question will turned off.
 
 ### Change Log
+
+2014-06-05 ~ Theo
+
+* Name change to SoundViz
 
 2014-06-04 ~ Theo
 
