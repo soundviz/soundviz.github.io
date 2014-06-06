@@ -50,7 +50,7 @@
 		var aboutButton = SO.menu.appendChild( document.createElement( 'div' ) );
 		aboutButton.innerHTML =
 			'<a href=# onclick=SO.toggleDialogs(SO.about); ><p class=button >' +
-				'<i class="fa fa-paw"></i> About Sonichele...' +
+				'<i class="fa fa-paw"></i> About SoundViz...' +
 			'</p></a>'; 
 
 		SO.about = SO.container.appendChild( document.createElement( 'div' ) );
@@ -60,7 +60,7 @@
 			'<h3>' + document.title + '</h3>' +
 			'<div><i><small>The hills are alive with the sound of music</small></i></div>' +
 			'<h4>Translates numerical sound data in ASCII format to 3D animations viewable in your browser</h4>' +
-			'<p>Data made available via  Michele Ducceschi\'s research on wave turbulence in elastic plates. See also:</p>' +
+			'<p>Data made available via  Dr Michele Ducceschi\'s research on wave turbulence in elastic plates. See also:</p>' +
 			'<ul>' +
 				'<li><a href="http://www.msc.univ-paris-diderot.fr/~berhanu/Ducceschi.pdf" target="_blank">Numerical Simulations of Wave Turbulence in Elastic Plates Using aFinite Difference Code</a></li>' +
 				'<li><a href="http://www.ness-music.eu/wp-content/uploads/2013/06/ducceschi_michele.pdf" target="_blank">Numerical Simulations of Wave Turbulence in Vibrating Plates</a></li>' +
@@ -69,9 +69,9 @@
 			'<small>' +
 				'<a href="https://github.com/jaanga/xxxxxxxxxxxxxx" target="_blank">Source code</a> ' +
 				'Credits: <a href="http://threejs.org" target="_blank">three.js</a> - ' +
-				'<a href="http://khronos.org/webgl/" target="_blank">webgl</a> - ' +
-				'<a href="http://sonichele.github.io" target="_blank">Sonichele</a><br>' +
-				'copyright &copy; 2014 Sonichele authors ~ MIT license' +
+				'<a href="http://khronos.org/webgl/" target="_blank">WebGL</a> - ' +
+				'<a href="http://soundviz.github.io" target="_blank">SoundViz</a><br>' +
+				'copyright &copy; 2014 SoundViz authors ~ MIT license' +
 			'</small><br><br>' +
 
 			'<p style=text-align:right; >' +

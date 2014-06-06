@@ -1,7 +1,5 @@
 	var SOSA = {} || SOSA;
 
-//	SOSA.sample1 = 'http://theo-armour.github.io/cookbook/sonichele/data-test/plate_coordinates_13x13-transposed.csv';
-
 	SOSA.sample1 = '../data-test/plate_coordinates_13x13-transposed.csv';
 	SOSA.sample2 = '../data-test/film_int_signed-150-450.csv';
 	SOSA.sample3 = '../data-test/film_int_signed-3470-3670.csv';
@@ -9,7 +7,7 @@
 	SOSA.addOnlineSamples = function() {
 		var OnlineSamplesButton = SO.menu.appendChild( document.createElement( 'div' ) );
 		OnlineSamplesButton.innerHTML =
-			'<a href=# onclick=SO.toggleDialogs(SOSA.onlineSamples); title="Start here!" ><p class=button >' +
+			'<a href=# onclick=msg.innerHTML="";SO.toggleDialogs(SOSA.onlineSamples); title="Start here!" ><p class=button >' +
 				'<i class="fa fa-cogs"></i> Online Samples...' +
 			'</p></a>'; 
 
@@ -39,11 +37,12 @@
 	};
 
 	SOSA.runFile = function( fname ) {
+		msg.innerHTML = 'Loading...';
 		heights = [];
 		fileCount = 1;
 		linesRead = 0;
 		frame = 0;
-		startTime = new Date();
+		SOFR.startTime = new Date();
 		SOSA.requestFile( fname );
 	};
 
@@ -60,21 +59,6 @@
 			data = SOSA.xmlhttp.responseText;
 			SOFR.processData( data );
 			SO.toggleDialogs();
-/*
-			lines = data.split(/\n/);
-			var sep = ',';
-			for ( var i = 0; i < 5; i++ ) {
-				heights.push( lines[i].split( sep ) );
-			}
-			linesRead += heights.length;
-			lineReads.innerHTML = 'Lines Read: ' + linesRead;
-			fileReads.innerHTML = 'File reads: ' + fileCount + '<br>Time (ms): ' + ( new Date() - startTime);
-
-			msg.innerHTML ='';
-			if ( fileCount >  1467 ) {
-				runFile();
-			}
-*/
 		} else {
 //			msg.innerHTML = 'waiting '; // + new Date() + '<br>' +  
 				SOSA.xmlhttp.readyState + '<br>' + 

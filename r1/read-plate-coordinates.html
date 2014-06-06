@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang=en >
+<head>
+<title>film tensor</title>
+<meta charset=utf-8 />
+<meta name=author content='Theo Armour' />
+</head>
+<body>
+<script>
+
+	var fileName = 'c:/temp/data-sources/film_tensor.csv';
+	var start = 4800000;  // start line 146
+	var stop = 120000000 ;
+	var lines, numbers;
+
+	init();
+
+	function init() {
+
+		document.body.style.cssText = ' font: bold 12pt monospace; ';
+
+		var info = document.body.appendChild( document.createElement( 'div' ) );
+		info.innerHTML = '<h1>' + document.title + '</h1>' +
+			'<div id=msg ></div>';
+
+		var data = requestFile( fileName, start, stop );
+
+		msg.innerHTML = data.substr( 0, 1000 );
+
+		lines = data.split(/\r\n|\n/);
+		var length = lines.length - 1;
+		numbers = [];
+		var sep = ',';
+		for ( var i = 0; i < length; i++ ) {
+			numbers.push( lines[i].split( sep ).map( parseFloat ) );
+		}
+
+	}
+
+
+	function requestFile( fname, start, stop ) {
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.crossOrigin = "Anonymous"; 
+		xmlHttp.open( 'GET', fname, false );
+		xmlHttp.setRequestHeader('Range', 'bytes=' + start + '-' + stop );
+		xmlHttp.send( null );
+		return xmlHttp.responseText;
+	}
+
+</script>
+</body>
+</html>
