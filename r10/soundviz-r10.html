@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang=en >
 <head>
-<title>SoundViz R9</title>
+<title>SoundViz R10</title>
 <meta charset=utf-8 />
 <meta name=author content='Theo Armour' />
 <meta name=viewport content=width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0 />
@@ -12,14 +12,17 @@
 <script src=http://mrdoob.github.io/three.js/examples/js/controls/TrackballControls.js ></script>
 <script src=http://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
 <script src=so-core.js></script>
-<script src=sofr-file-reader.js></script>
 <script src=sosa-online-samples.js></script>
+<script src=sofr-file-reader.js></script>
+<script src=soco-controls.js></script>
 <script src=soio-input-output.js></script>
 <script src=soth-three.js></script>
 <script src=soli-lights.js></script>
 <script>
 
 	SO.init = function() {
+		SO.running = false;
+
 		SO.container = document.body.appendChild( document.createElement( 'div' ) );
 
 		SO.addCSS();
@@ -39,6 +42,8 @@
 
 		SO.addAbout();
 
+		SOCO.addControls();
+
 		SOIO.addInputOutput();
 
 		SOTH.addThreeFooter();
@@ -49,17 +54,19 @@
 	SO.animate = function() {
 		requestAnimationFrame( SO.animate );
 		controls.update();
-		SO.updateFrame();
+		
+		if ( SO.running ) SO.update();
 		stats.update();
 		renderer.render( scene, camera );
 	}
 
-	SO.updateFrame = function() {
+	SO.update = function() {
+//		if ( !SO.running ) return;
 		var vertices, elevations, len;
 		if ( !SOFR.heights || !SOFR.heights.length ) return;
 		if ( SOFR.frame >= SOFR.heights.length ) {
 			var nowTime = new Date();
-			divTimes.innerHTML = 'Time in ms: ' + ( nowTime - SOFR.startTime );
+			divMsg.innerHTML = 'Time in ms: ' + ( nowTime - SOFR.startTime );
 			SOFR.startTime = nowTime;
 			SOFR.frame = 0;
 		}
@@ -73,7 +80,7 @@
 		mesh.geometry.computeFaceNormals();
 		mesh.geometry.computeVertexNormals();
 
-		divFrame.innerHTML = 'Frame: ' + SOFR.frame;
+		divRunTime.innerHTML = 'Frame: ' + SOFR.frame;
 		SOFR.frame++;
 	}
 

@@ -8,6 +8,13 @@ There is an `iframe` here. It is not visible when viewed on github.com. To view,
 </iframe>
 _SoundViz R9_
 
+[SoundViz R10 - full screen]( http://soundviz.github.io/r10/soundviz-r10.html ) 
+
+* Reads int8 binary data
+* Adds Run/Pause/Forward/Backward/Start/End buttons
+* Messaging simplified
+* Adding back shadows / light helper
+
 [SoundViz R9 - full screen]( http://soundviz.github.io/r9/soundviz-r9.html ) 
 
 * Adds access to online sample files
