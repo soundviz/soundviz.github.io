@@ -66,7 +66,7 @@
 			'</ul>' +
 
 			'<small>' +
-				'<a href="https://github.com/soundviz/" target="_blank">Source code</a> ' +
+				'<a href="https://github.com/soundviz/soundviz.github.io/" target="_blank">Source code</a> ' +
 				'Credits: <a href="http://threejs.org" target="_blank">three.js</a> - ' +
 				'<a href="http://khronos.org/webgl/" target="_blank">WebGL</a> - ' +
 				'<a href="http://soundviz.github.io" target="_blank">SoundViz</a><br>' +
