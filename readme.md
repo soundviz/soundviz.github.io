@@ -6,7 +6,7 @@ SoundViz Read Me
 <iframe src="http://soundviz.github.io/latest/index.html" width=100% height=500px class='overview' >
 There is an `iframe` here. It is not visible when viewed on github.com. To view, please go to theo-armour.github.io. See 'Project Links' just below.
 </iframe>
-_SoundViz R10_
+_SoundViz R11_
 
 
 ## Concept
@@ -88,6 +88,15 @@ Bugs on browsers other than Chrome need not be reported until such time as the w
 This repository contains files that are at an early and volatile stage. Not all licensing requirements may have been fully met let alone identified. It is the intension of the authors to play fair and all such requirements will either be met or the feature in question will turned off.
 
 ### Change Log
+
+2014-06-09 ~ Theo
+
+[SoundViz R11 - full screen]( http://soundviz.github.io/r11/soundviz-r11.html ) 
+
+* Adds tab accordion capability
+
+* Addes select material with 14 materials
+* Adds Material edit
 
 2014-06-05 ~ Theo
 

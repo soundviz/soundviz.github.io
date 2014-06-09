@@ -27,6 +27,7 @@
 		footer.innerHTML =
 			'<h2>' +
 				'<a href=# onclick=SOTH.resetCamera(); title="Return to default view"><i class="fa fa-home"></i></a>  ' +
+
 			'</h2>'; 
 	};
 
@@ -55,8 +56,11 @@
 //		material = new THREE.MeshLambertMaterial( { color: Math.random() * 0xffffff });
 //		material = new THREE.MeshPhongMaterial( {map: texture, color: 0xffaaaa, ambient: 0xaaaaaa, shading: THREE.SmoothShading, shininess: 50, side: THREE.DoubleSide, specular: 0x333333 } );
 //		material = new THREE.MeshPhongMaterial( { ambient: 0x030303, color: 0xdddddd, specular: 0x009900, shininess: 30, shading: THREE.SmoothShading, side: THREE.DoubleSide }),
-		material = new THREE.MeshPhongMaterial( { ambient: 0xffffff * Math.random(), color: 0xffffff * Math.random(), shininess: 0.5, side: THREE.DoubleSide, specular: 0xffffff * Math.random(), transparent: false } );
+//		material = new THREE.MeshPhongMaterial( { ambient: 0xffffff * Math.random(), color: 0xffffff * Math.random(), shininess: 0.5, side: THREE.DoubleSide, specular: 0xffffff * Math.random(), transparent: false } );
 
+//		material = SOMA.Materials.PhongVertexColors( geometry );
+
+		material = SOMA.Materials.PhongCar();
 		mesh = new THREE.Mesh( geometry, material );
 		mesh.scale.set( 200, scale, 200 );
 		mesh.position.y = -base;
@@ -64,9 +68,14 @@
 		mesh.receiveShadow = true;
 		scene.add( mesh );
 
-		wires = mesh.clone();
-		wires.material = new THREE.MeshBasicMaterial( { wireframe: true } );
-		scene.add( wires );
+		material.type = 3;
+		SOTH.selectedObject = mesh;
+		
+		if ( inpWireFrame.checked === true || inpWireFrame2.checked === true) {
+			wires = mesh.clone();
+			wires.material = new THREE.MeshBasicMaterial( { wireframe: true } );
+			scene.add( wires );
+		}
 	}
 
 	SOTH.getTrackballController = function() {
