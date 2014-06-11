@@ -5,7 +5,7 @@ _The descripion of the technical background of SoundViz is a work-in-progress. F
  
 _From the [MusICA Seminars]( http://www.musica.ed.ac.uk/archive/2014/michele-ducceschi/ ) web site:_
 
-### Seminar Title: Sound synthesis of gongs using a modal scheme – development and examples
+### Seminar Title: Sound synthesis of gongs using a modal scheme - development and examples
 
 ### Speaker: Dr Michele Ducceschi (UME ENSTA, Paris Tech, France)
 
@@ -33,7 +33,7 @@ and a PhD in Mechanical Engineering from ENSTA and &#201;cole Polytechnique, Fra
 
 _From the abstract to Dr Ducceschi's recent paper:_
 
-### Abstract: [Numerical Simulations of Wave Turbulence in Vibrating Plates]( http://www.ness-music.eu/wp-content/uploads/2013/06/ducceschi_michele.pdf ):_
+### Abstract: [Numerical Simulations of Wave Turbulence in Vibrating Plates]( http://www.ness-music.eu/wp-content/uploads/2013/06/ducceschi_michele.pdf ):
 
 This work is concerned with numerical simulations of wave turbulence in elastic plates. 
 A finite difference code is used to simulate the turbulent regime of a plate vibrating at large amplitudes, hence allowing a computational framework that is closer to the experiments as compared to already published results. 
