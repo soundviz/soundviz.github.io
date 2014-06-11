@@ -38,7 +38,7 @@
 					'<option selected>Both</option>' +
 				'<select><br>'; 
 
-				if ( m.ambient ) txt += 'Ambient: &nbsp;<input type=color id=inpAmbient value=#' + m.ambient.getHexString() + ' > <output id=ouSOmbient >#' + m.ambient.getHexString() + '</output><br>';
+				if ( m.ambient ) txt += 'Ambient: &nbsp;<input type=color id=inpAmbient value=#' + m.ambient.getHexString() + ' > <output id=outAmbient >#' + m.ambient.getHexString() + '</output><br>';
 				if ( m.color ) txt += 'Color: &nbsp; &nbsp;<input type=color id=inpColor value=#' + m.color.getHexString() + '> <output id=outColor >#' + m.color.getHexString() + '</output><br>';
 				if ( m.emissive ) txt += 'Emissive: <input type=color id=inpEmissive value=#' + m.emissive.getHexString() + '> <output id=outEmissive >#' + m.emissive.getHexString() + '</output><br>';
 				if ( m.specular ) txt += 'Specular: <input type=color id=inpSpecular value=#' + m.specular.getHexString() + '> <output id=outSpecular >#' + m.specular.getHexString() + '</output><br>';
@@ -49,10 +49,9 @@
 
 				'Opacity: &nbsp;<input type=range id=inpOpacity title="0 to 1" min=0 max=1 step=0.01 value=' + m.opacity + ' >' +
 					'<output id=outOpacity >' + m.opacity + '</output><br>' +
-				'Shininess:<input type=range id=inpShininess title="0 to 100" min=0 max=100 step=1 value=' + m.shininess + ' >' +
+				'Shininess:<input type=range id=inpShininess title="0 to 300" min=0 max=300 step=5 value=' + m.shininess + ' >' +
 					'<output id=outShininess >' + m.shininess + '</output><br>' +
 			'</p>' +
-
 			'<p style=text-align:right; >' +
 				'<a class=button href=JavaScript:SO.toggleTab(SOMA.MaterialEditorBox); >Close</a> ' +
 			'</p>' +
@@ -96,7 +95,6 @@
 
 		inpOpacity.onchange = function() { m.opacity = this.value; SOMA.updateMaterialEditorBox(); };
 		inpShininess.onchange = function() { m.shininess = this.value; SOMA.updateMaterialEditorBox(); };
-
 	};
 
 /*
@@ -132,11 +130,13 @@ materials.push( new THREE.MeshPhongMaterial( { ambient: 0x030303, color: 0xddddd
 				'<a href=JavaScript:SOTH.selectedObject.material=SOMA.Materials.PhongSmooth(); >Phong Smooth</a><br>' +
 			'</div>' +
 			'<h3 style=margin-bottom:0; >Materials - Vertex Colors</h3>' +
-				'<a href=JavaScript:SOTH.selectedObject.material=SOMA.Materials.PhongVertexColors( geometry ); >Phong Vertex Colors</a><br>' +
+				'<a href=JavaScript:SOTH.selectedObject.material=SOMA.Materials.PhongVertexColors(); >Phong Vertex Colors</a><br>' +
 
 			'<h3 style=margin-bottom:0; >Materials - Textured</h3>' +
 				'<a href=JavaScript:SOTH.selectedObject.material=SOMA.Materials.PhongGridded(); >Phong Gridded</a><br>' +
 				'<a href=JavaScript:SOTH.selectedObject.material=SOMA.Materials.PhongUVGrid(); >Phong UVGrid</a><br>' +
+				'<a href=JavaScript:SOTH.selectedObject.material=SOMA.Materials.PhongLavatile(); >Phong LaveTile</a><br>' +
+				'<a href=JavaScript:SOTH.selectedObject.material=SOMA.Materials.PhongDisturb(); >Phong Disturb</a><br>' +
 				'<a href=JavaScript:SOTH.selectedObject.material=SOMA.Materials.PhongCar(); >Phong Car</a><br>' +
 
 			'<h3 style=margin-bottom:0; >Materials - Reflections</h3>' +
@@ -144,12 +144,6 @@ materials.push( new THREE.MeshPhongMaterial( { ambient: 0x030303, color: 0xddddd
 				'<a href=JavaScript:SOTH.selectedObject.material=SOMA.Materials.PhongShiny(); >Phong Shiny</a><br>' +
 		'';
 	};
-
-//		var texture = THREE.ImageUtils.loadTexture( "../textures/UV_Grid_512.png" );
-//		texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-//		texture.anisotropy = 16;
-//		texture.needsUpdate = true;
-//		material = new THREE.MeshPhongMaterial( { ambient: 0x030303, color: 0xdddddd, specular: 0x009900, shininess: 30, shading: THREE.SmoothShading, side: THREE.DoubleSide }),
 
 	SOMA.Materials.PhongRandom = function() {
 		var material = new THREE.MeshPhongMaterial( { ambient: 0x000000, color: 0xffffff, emissive: 0xffffff, specular: 0xffffff } );
@@ -160,7 +154,7 @@ materials.push( new THREE.MeshPhongMaterial( { ambient: 0x030303, color: 0xddddd
 		material.metal = Math.floor( 2 * Math.random() );
 		material.opacity = Math.random().toFixed(2);
 		material.side = 2;
-		material.shininess = (100 * Math.random()).toFixed(0);
+		material.shininess = (300 * Math.random()).toFixed(0);
 		material.specular.setHex( 0xffffff * Math.random() );
 		material.wireframe = Math.floor( 1.3 * Math.random() );
 
@@ -212,69 +206,76 @@ materials.push( new THREE.MeshPhongMaterial( { ambient: 0x030303, color: 0xddddd
 
 // vertex colors
 
-	SOMA.Materials.PhongVertexColors = function( geom ) {
-		// var geom = SOTH.selectedObject.geometry;
-		geom.computeBoundingBox();
-
-		yMin = geom.boundingBox.min.y;
-		yMax = geom.boundingBox.max.y;
-		yRange = yMax - yMin;
+	SOMA.Materials.PhongVertexColors = function() {  // broken....
+		var geom = SOTH.selectedObject.geometry;
+		//geom.computeBoundingBox();
+		//yMin = geom.boundingBox.min.y;
+		//yMax = geom.boundingBox.max.y;
+		yRange = scale; // yMax - yMin;
 		var color, point, face, numberOfSides, vertexIndex;
 
 		for ( var i = 0; i < geom.vertices.length; i++ ) {
 			point = geom.vertices[ i ];
 			color = new THREE.Color( 0x0000ff );
-			color.setHSL( 0.7 * (yMax - point.y) / yRange, 1, 0.5 );
+			color.setHSL( 0.7 * (scale - point.y) / scale, 1, 0.5 );
 			geom.colors[i] = color; // use this array for convenience
 		}
 
-		var faceIndices = [ 'a', 'b', 'c' ];
+		var faceIndices = [ 'a', 'b', 'c', 'd' ];
 		for ( var i = 0; i < geom.faces.length; i++ ) {
 			face = geom.faces[ i ];
-			//numberOfSides = ( face insSOnceof THREE.Face3 ) ? 3 : 4;
-			for ( var j = 0; j < 3; j++ ) {
+			numberOfSides = ( face instanceof THREE.Face3 ) ? 3 : 4;
+			for ( var j = 0; j < numberOfSides; j++ ) {
 				vertexIndex = face[ faceIndices[ j ] ];
 				face.vertexColors[ j ] = geom.colors[ vertexIndex ];
 			}
 		}
 
 		var material = new THREE.MeshBasicMaterial( { color: 0xff0000, side: THREE.DoubleSide, vertexColors: THREE.VertexColors  } );
-		material.wireframe = 0;
 		material.type = 3;
 		return material;
-	}
+	};
 
-// textures
+// Textures
 
 	SOMA.Materials.PhongGridded = function() {
 		var texture = new THREE.ImageUtils.loadTexture( '../textures/square.png' );
 		texture.wrapS = texture.wrapT = THREE.RepeatWrapping; 
 		texture.repeat.set( 30, 30 );
-//		texture.needsUpdate = true;
-		var material = material = new THREE.MeshPhongMaterial( {map: texture, color: 0xffaaaa, ambient: 0xaaaaaa, shading: THREE.SmoothShading, shininess: 50, side: THREE.DoubleSide, specular: 0x333333 } );
+		var material = material = new THREE.MeshPhongMaterial( {map: texture, color: 0xffaaaa, ambient: 0xffaaaa, shading: THREE.SmoothShading, shininess: 50, side: THREE.DoubleSide, specular: 0x333333 } );
 		material.type = 3;
 		return material;
 	}
 
 	SOMA.Materials.PhongUVGrid = function() {
 		var texture = new THREE.ImageUtils.loadTexture( '../textures/ash_uvgrid01.jpg' );
-		texture.wrapS = texture.wrapT = THREE.RepeatWrapping; 
-		texture.repeat.set( 1, 1 );
-//		texture.needsUpdate = true;
 		var material = material = new THREE.MeshPhongMaterial( {map: texture, color: 0xffaaaa, ambient: 0xaaaaaa, shading: THREE.SmoothShading, shininess: 50, side: THREE.DoubleSide, specular: 0x333333 } );
 		material.type = 3;
 		return material;
 	}
 
+	SOMA.Materials.PhongLavatile = function() {
+		var texture = new THREE.ImageUtils.loadTexture( '../textures/lavatile.jpg' );
+		var material = material = new THREE.MeshPhongMaterial( {map: texture, color: 0xffaaaa, ambient: 0xaaaaaa, shading: THREE.SmoothShading, shininess: 50, side: THREE.DoubleSide, specular: 0x333333 } );
+		material.type = 3;
+		return material;
+	};
+
+	SOMA.Materials.PhongDisturb = function() {
+		var texture = new THREE.ImageUtils.loadTexture( '../textures/disturb.jpg' );
+		var material = material = new THREE.MeshPhongMaterial( {map: texture, color: 0xffaaaa, ambient: 0xaaaaaa, shading: THREE.SmoothShading, shininess: 50, side: THREE.DoubleSide, specular: 0x333333 } );
+		material.type = 3;
+		return material;
+	};
+
 	SOMA.Materials.PhongCar = function() {
 		var texture = new THREE.ImageUtils.loadTexture( '../textures/im5.jpg' );
-		texture.wrapS = texture.wrapT = THREE.RepeatWrapping; 
-		texture.repeat.set( 1, 1 );
-//		texture.needsUpdate = true;
 		var material = material = new THREE.MeshPhongMaterial( {map: texture, color: 0xffaaaa, ambient: 0xaaaaaa, shading: THREE.SmoothShading, shininess: 50, side: THREE.DoubleSide, specular: 0x333333 } );
 		material.type = 3;
 		return material;
 	}
+
+// Reflections
 
 	SOMA.Materials.PhongChrome = function() {
 		var path = '../textures/cube/SwedishRoyalCastle/';
@@ -284,11 +285,8 @@ materials.push( new THREE.MeshPhongMaterial( { ambient: 0x030303, color: 0xddddd
 			path + 'py' + format, path + 'ny' + format,
 			path + 'pz' + format, path + 'nz' + format
 		];
-
-		var reflectionCube = THREE.ImageUtils.loadTextureCube( urls );
-		reflectionCube.format = THREE.RGBFormat;
-
-		var material = new THREE.MeshPhongMaterial( { color: 0xffffff, envMap: reflectionCube, side: THREE.DoubleSide } );
+		var texture = THREE.ImageUtils.loadTextureCube( urls, new THREE.CubeRefractionMapping() );
+		var material = material = new THREE.MeshPhongMaterial( { color: 0xccddff, envMap: texture, refractionRatio: 0.98, reflectivity:0.9, side: THREE.DoubleSide } );
 		material.type = 3;
 		return material;
 	}
@@ -301,23 +299,8 @@ materials.push( new THREE.MeshPhongMaterial( { ambient: 0x030303, color: 0xddddd
 			path + 'py' + format, path + 'ny' + format,
 			path + 'pz' + format, path + 'nz' + format
 		];
-/*
-		var reflectionCube = THREE.ImageUtils.loadTextureCube( urls );
-		reflectionCube.wrapS = reflectionCube.wrapT = THREE.RepeatWrapping; 
-		reflectionCube.repeat.set( 1, 1 );
-		reflectionCube.format = THREE.RGBFormat;
-
-		var refractionCube = new THREE.Texture( reflectionCube.image, new THREE.CubeRefractionMapping() );
-		refractionCube.wrapS = refractionCube.wrapT = THREE.RepeatWrapping; 
-		refractionCube.repeat.set( 1, 1 );
-		reflectionCube.format = THREE.RGBFormat; 
-*/
-
-    textureCube = THREE.ImageUtils.loadTextureCube( urls, new THREE.CubeRefractionMapping() );
-	textureCube.repeat.set( 10, 10 );
-    var material = new THREE.MeshBasicMaterial( { color: 0xffffff, envMap: textureCube, refractionRatio: 0.95, side: THREE.DoubleSide } );
-
-		//var material = new THREE.MeshPhongMaterial( { color: 0x550000, specular: 0x440000, envMap: reflectionCube,  refractionRatio: 5, combine: THREE.MixOperation, reflectivity: 0.3, side: THREE.DoubleSide } );
+		var texture = THREE.ImageUtils.loadTextureCube( urls, new THREE.CubeRefractionMapping() );
+		var material = new THREE.MeshBasicMaterial( { color: 0xffffff, envMap: texture, refractionRatio: 0.95, side: THREE.DoubleSide } );
 		material.type = 3;
 		return material;
 	}

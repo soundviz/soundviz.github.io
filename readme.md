@@ -8,6 +8,10 @@ There is an `iframe` here. It is not visible when viewed on github.com. To view,
 </iframe>
 _SoundViz R11_
 
+Fullscreen demo: [SoundViz R12]( http://soundviz.github.io/r12/soundviz-r12.html )  
+Web page: [Read Me]( http://soundviz.github.io/ "view the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >   
+Source code: [Source Code]( https://github.com/soundviz/ "View the files as source code." ) <scan style=display:none ><< You are now probably here.</scan>  
+
 
 ## Concept
 
@@ -88,6 +92,14 @@ Bugs on browsers other than Chrome need not be reported until such time as the w
 This repository contains files that are at an early and volatile stage. Not all licensing requirements may have been fully met let alone identified. It is the intension of the authors to play fair and all such requirements will either be met or the feature in question will turned off.
 
 ### Change Log
+
+2014-06-09 ~ Theo
+
+* Add reset screen after window resize
+* Add retain current material when loading new bata
+* Add edit color of Ambent light
+* Change light at camera position from point light to irectional light
+* Add more materials, simplify reflections
 
 2014-06-09 ~ Theo
 
