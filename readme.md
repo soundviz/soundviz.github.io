@@ -6,7 +6,10 @@ SoundViz Read Me
 <iframe src="http://soundviz.github.io/latest/index.html" width=100% height=500px class='overview' >
 There is an `iframe` here. It is not visible when viewed on github.com. To view, please go to theo-armour.github.io. See 'Project Links' just below.
 </iframe>
-_SoundViz R11_
+_SoundViz R12_
+
+_Welcome MusICA Attendees!_  
+<http://www.musica.ed.ac.uk/archive/2014/michele-ducceschi/>
 
 Fullscreen demo: [SoundViz R12]( http://soundviz.github.io/r12/soundviz-r12.html )  
 Web page: [Read Me]( http://soundviz.github.io/ "view the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >   
@@ -21,43 +24,51 @@ Source code: [Source Code]( https://github.com/soundviz/ "View the files as sour
 
 * Translate numeric sound data in ASCII format to 3D animations viewable in your browser
 * Data from Dr Michele Ducceschi's research on wave turbulence in elastic plates
-	* http://ume.ensta-paristech.fr/dfa-theses-et-livres_lang_EN_menu_1
-	* http://www.msc.univ-paris-diderot.fr/~berhanu/Ducceschi.pdf
-	* http://www.ness-music.eu/wp-content/uploads/2013/06/ducceschi_michele.pdf
+	* <http://ume.ensta-paristech.fr/dfa-theses-et-livres_lang_EN_menu_1>
+	* <http://www.msc.univ-paris-diderot.fr/~berhanu/Ducceschi.pdf>
+	* <http://www.ness-music.eu/wp-content/uploads/2013/06/ducceschi_michele.pdf>
 
 
 ### Vision 
 <!--  a descriptive picture of a desired future state -->
 
+* Enable these tools to access display a wide variety of data and data types from multiple sources
+* Add capabilities to display 'meta' or calculated inferences - such as current acceleration at particular points - to particular areas of interesting or singularities while the data is replaying.
+
 
 ## Features
 
 * Reads ASCII CSV files or int8 binary files up to perhaps 120 MB 0r 100 million numbers
-* Files can be loaded from local disk or network
 * Three online sample files are provided for easy familiarization
+* Files can be loaded from local disk or network
 * Creates 3D height maps from the data
 * Replays the data as 3D animations
-* Provides fill pan, rotate and zoom control
+* Provides full pan, rotate and zoom control
 * Lights can be toggled and re-positioned
+* A variety of materials may be assigned to the surface and their parameters edited individually
 * Control panel provides run/pause/next/previous/first/last frame control
+* Preferences dialog allows setting background, vertical scale and wireframe skin
 * Adjusts for segments per side and maximum and minimum height
-
-
+* Menu, tabs and dialogs are iconizable and movable
+* Displays FPS stats and provides a reset view button
 
 ## Road Map
 
-* Add select materials tab
-* Add more and better lighting control
-* Add select frame slider bar 
-* Add select frame rate control
-* Add auto-roate after some number of seconds
+* Add more data files
+* Add ability to adjust color and intensity for all lights
+* Better selection of materials
+* Load partial files so can start playing faster
+* Add frame-by-frame vertex coloring capability so, for example, vertices change color with height
+* Add auto-rotate after some number of seconds
 * Add permalinks
-* Add logarithmic vertical scale with slider control
+* Add cutom textures
 * Add Michele's abstract to readme
 
 
 ## Issues /Bugs
 
+* More speed
+* Wireframe ghosting appears at certain scales
 
 
 ## Project Links
@@ -73,7 +84,7 @@ The three ways of looking at or using the scripts:
 
 ### System Requirements
 
-In order to view the files on this site you will need a device and browser that provides good support for [WebGL](http://get.webgl.org/)
+In order to view the files on this site you will need a device and browser that provides good support for [WebGL](http://get.webgl.org/).
 WebGL is the JavaScript API for rendering interactive 3D graphics and 2D graphics within any compatible web browser without the use of plug-ins. 
 
 Generally this means a computer with an Intel Core i3 processor or better with an external GPU such as one made by Nvidia. 
@@ -93,12 +104,33 @@ This repository contains files that are at an early and volatile stage. Not all 
 
 ### Change Log
 
+2014-06-10 ~ Theo
+
+* R12 is up
+* Adds Preferences tab
+	* Set wireframe helper and adjust vertical scaling
+	* Set type of background: random gradient, random color, select color
+* Issues with opening and closing menu, tabs and dialogs much cleaned up
+* More tool-tips and custom cursors
+* Better camera and target positioning
+* Generally more objectified and simplified
+* Updates ti read me
+* MIT License added
+
+Road map issues dealt with
+
+* Add select materials tab
+* Add more and better lighting control
+* Add select frame slider bar 
+* Add select frame rate control
+* Add logarithmic vertical scale with slider control
+
 2014-06-09 ~ Theo
 
 * Add reset screen after window resize
-* Add retain current material when loading new bata
-* Add edit color of Ambent light
-* Change light at camera position from point light to irectional light
+* Add retain current material when loading new data
+* Add edit color of Ambient light
+* Change light at camera position from point light to directional light
 * Add more materials, simplify reflections
 
 2014-06-09 ~ Theo
@@ -107,7 +139,7 @@ This repository contains files that are at an early and volatile stage. Not all 
 
 * Adds tab accordion capability
 
-* Addes select material with 14 materials
+* Adds select material with 14 materials
 * Adds Material edit
 
 2014-06-05 ~ Theo
@@ -138,11 +170,11 @@ Fixes / Road Map Items cleared
 
 * Add R8
 * Adds lights and shadows along with a settings dialog
-	* Toggle dispplay of lights
+	* Toggle display of lights
 	* Toggle display of light helper
 	* Adjust position of directional light
 * Adds random gradient background
-* Adds random color, ambient and specualar effects
+* Adds random color, ambient and specular effects
 * Tries to adjust for height and number of segments automatically
 
 
