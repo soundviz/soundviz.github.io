@@ -8,8 +8,7 @@ There is an `iframe` here. It is not visible when viewed on github.com. To view,
 </iframe>
 _SoundViz R12_
 
-_Welcome MusICA Attendees!_  
-<http://www.musica.ed.ac.uk/archive/2014/michele-ducceschi/>
+#### Welcome [MusICA Seminar]( http://www.musica.ed.ac.uk/archive/2014/michele-ducceschi/ ) Attendees!
 
 Fullscreen demo: [SoundViz R12]( http://soundviz.github.io/r12/soundviz-r12.html )  
 Web page: [Read Me]( http://soundviz.github.io/ "view the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >   
@@ -38,13 +37,13 @@ Source code: [Source Code]( https://github.com/soundviz/ "View the files as sour
 
 ## Features
 
-* Reads ASCII CSV files or int8 binary files up to perhaps 120 MB 0r 100 million numbers
+* Reads ASCII CSV files or int8 binary files up to perhaps 120 MB or 100 million numbers
 * Three online sample files are provided for easy familiarization
-* Files can be loaded from local disk or network
+* Files may be loaded from local disk or network
 * Creates 3D height maps from the data
 * Replays the data as 3D animations
 * Provides full pan, rotate and zoom control
-* Lights can be toggled and re-positioned
+* Lights may be toggled and re-positioned
 * A variety of materials may be assigned to the surface and their parameters edited individually
 * Control panel provides run/pause/next/previous/first/last frame control
 * Preferences dialog allows setting background, vertical scale and wireframe skin
