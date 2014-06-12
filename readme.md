@@ -10,7 +10,7 @@ _SoundViz R13_
 
 #### Welcome [MusICA Seminar]( http://www.musica.ed.ac.uk/archive/2014/michele-ducceschi/ ) Attendees!
 
-Fullscreen demo: [SoundViz R12]( http://soundviz.github.io/r13/soundviz-r13.html )  
+Fullscreen demo: [SoundViz R13]( http://soundviz.github.io/r13/soundviz-r13.html )  
 Web page: [Read Me]( http://soundviz.github.io/ "view the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >   
 Source code: [Source Code]( https://github.com/soundviz/ "View the files as source code." ) <scan style=display:none ><< You are now probably here.</scan>  
 
@@ -102,6 +102,11 @@ Bugs on browsers other than Chrome need not be reported until such time as the w
 This repository contains files that are at an early and volatile stage. Not all licensing requirements may have been fully met let alone identified. It is the intension of the authors to play fair and all such requirements will either be met or the feature in question will turned off.
 
 ### Change Log
+
+2014-06-11 ~ Theo
+
+* R13 is up
+* Many materials fixes
 
 2014-06-10 ~ Theo
 
