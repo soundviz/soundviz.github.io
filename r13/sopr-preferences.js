@@ -43,8 +43,11 @@
 				scene.remove( wires );
 			}
 		}
-		rngVerticalScale.onchange = function(){ wires.scale.y = mesh.scale.y = rngVerticalScale.value * 0.02 * mesh.scale.y; };
 
+		rngVerticalScale.onchange = function() {
+			JATH.selectedObject.scale.y = rngVerticalScale.value * 0.02 * JATH.selectedObject.scale.y; 
+			if ( wires ) { wires.scale.y = JATH.selectedObject.scale.y ; }
+		};
 	};
 
 	SOPR.updateBackground = function( id ) {

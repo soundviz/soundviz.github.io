@@ -6,11 +6,11 @@ SoundViz Read Me
 <iframe src="http://soundviz.github.io/latest/index.html" width=100% height=500px class='overview' >
 There is an `iframe` here. It is not visible when viewed on github.com. To view, please go to theo-armour.github.io. See 'Project Links' just below.
 </iframe>
-_SoundViz R12_
+_SoundViz R13_
 
 #### Welcome [MusICA Seminar]( http://www.musica.ed.ac.uk/archive/2014/michele-ducceschi/ ) Attendees!
 
-Fullscreen demo: [SoundViz R12]( http://soundviz.github.io/r12/soundviz-r12.html )  
+Fullscreen demo: [SoundViz R12]( http://soundviz.github.io/r13/soundviz-r13.html )  
 Web page: [Read Me]( http://soundviz.github.io/ "view the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >   
 Source code: [Source Code]( https://github.com/soundviz/ "View the files as source code." ) <scan style=display:none ><< You are now probably here.</scan>  
 
@@ -113,7 +113,8 @@ This repository contains files that are at an early and volatile stage. Not all 
 * More tool-tips and custom cursors
 * Better camera and target positioning
 * Generally more objectified and simplified
-* Updates ti read me
+* Updates to read me
+* Technical background page added
 * MIT License added
 
 Road map issues dealt with
