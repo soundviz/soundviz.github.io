@@ -1,11 +1,6 @@
 	var SOAS = {} || SOAS;
 
 	SOAS.addAssets = function() {
-		JA.camX = 200;
-		JA.camY = 100;
-		JA.camZ = 200; 
-		JATH.resetCamera();
-
 		SOPR.setRandomGradient();
 		JATH.addDefaultObject();
 
@@ -17,10 +12,10 @@
 	};
 
 	SOAS.updateGroundPlane = function( segments, base, scale) {
-//		JATH.material = JATH.selectedObject.material;
+
 		scene.remove( mesh );
 
-		geometry = new THREE.PlaneGeometry( 200, 200, segments - 1, segments - 1 );
+		geometry = new THREE.PlaneGeometry( 100, 100, segments - 1, segments - 1 );
 		geometry.applyMatrix( new THREE.Matrix4().makeRotationX( Math.PI / 2 ) );
 
 		if ( JATH.selectedObject ) {
@@ -35,6 +30,7 @@
 		mesh.castShadow = true;
 		mesh.receiveShadow = true;
 		scene.add( mesh );
+
 		SOPR.setWireframe();
 
 		JATH.selectedObject = mesh;

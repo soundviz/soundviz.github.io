@@ -91,4 +91,3 @@
 		SOPR.cssBackround = document.body.appendChild( document.createElement('style') );
 		SOPR.cssBackround.innerHTML += 'body { background-color: ' + selColor.value + '; }';
 	}
-

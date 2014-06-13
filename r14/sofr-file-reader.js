@@ -4,9 +4,10 @@
 	SOFR.addFileReader = function() {
 		var tab = JA.menu.appendChild( document.createElement( 'div' ) );
 		tab.innerHTML =
-			'<a href=# onclick=JA.toggleDialogs(SOFR.FileReader); ><p class=button >' +
+			'<a href=# id=tabFileReader ><p class=button >' +
 				'<i class="fa fa-file-image-o"></i> File Reader...' +
 			'</p></a>'; 
+		tabFileReader.onclick = function() {JA.toggleDialogs(TAFR.FileReader); };
 
 		SOFR.FileReader = JA.container.appendChild( document.createElement( 'div' ) );
 		SOFR.FileReader.className = 'movable';
