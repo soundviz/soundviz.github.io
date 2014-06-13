@@ -6,11 +6,11 @@ SoundViz Read Me
 <iframe src="http://soundviz.github.io/latest/index.html" width=100% height=500px class='overview' >
 There is an `iframe` here. It is not visible when viewed on github.com. To view, please go to theo-armour.github.io. See 'Project Links' just below.
 </iframe>
-_SoundViz R13_
+_SoundViz R14_
 
 #### Welcome [MusICA Seminar]( http://www.musica.ed.ac.uk/archive/2014/michele-ducceschi/ ) Attendees!
 
-Fullscreen demo: [SoundViz R13]( http://soundviz.github.io/r13/soundviz-r13.html )  
+Fullscreen demo: [SoundViz R14]( http://soundviz.github.io/r13/soundviz-r14.html )  
 Web page: [Read Me]( http://soundviz.github.io/ "view the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >   
 Source code: [Source Code]( https://github.com/soundviz/ "View the files as source code." ) <scan style=display:none ><< You are now probably here.</scan>  
 
@@ -43,7 +43,7 @@ Source code: [Source Code]( https://github.com/soundviz/ "View the files as sour
 * Creates 3D height maps from the data
 * Replays the data as 3D animations
 * Provides full pan, rotate and zoom control
-* Lights may be toggled and re-positioned
+* Lights may be toggled, most settings updated and re-positioned
 * A variety of materials may be assigned to the surface and their parameters edited individually
 * Control panel provides run/pause/next/previous/first/last frame control
 * Preferences dialog allows setting background, vertical scale and wireframe skin
@@ -102,6 +102,13 @@ Bugs on browsers other than Chrome need not be reported until such time as the w
 This repository contains files that are at an early and volatile stage. Not all licensing requirements may have been fully met let alone identified. It is the intension of the authors to play fair and all such requirements will either be met or the feature in question will turned off.
 
 ### Change Log
+
+2014-06-13 ~ Theo
+
+* R14 is up
+* Lights tab has many more adjustable settings
+* Wireframe helper set as default
+* Base size changed from 200x200 to 100x100 to follow more usual practice
 
 2014-06-11 ~ Theo
 

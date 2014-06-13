@@ -2,16 +2,17 @@
 
 	JALI.addLightsBox = function() {
 		var tab = JA.menu.appendChild( document.createElement( 'div' ) );
+
 		tab.innerHTML =
-			'<a id=tabLight ><p class=button >' +
+			'<a id=tabLight style=cursor:pointer; ><p class=button >' +
 				'<i class="fa fa-lightbulb-o"></i> Lights...' +
 			'</p></a>'; 
-		tabLight.href = 'JavaScript:JA.toggleTab( JALI.lightsBox ); '; 
+//		tablight.style.cssText = 'cursor: auto; ' ;
+		tabLight.onclick = function() { JA.toggleTab( JALI.lightsBox ); }; 
 
 		JALI.lightsBox = tab.appendChild( document.createElement( 'div' ) );
 		JALI.lightsBox.style.cssText = 'cursor: auto; display: none; ' ;
 		JALI.lightsBox.innerHTML =
-			'<div id=wiMsg >Work in progress...</div>' +
 			'<p>' +
 				'<input type=checkbox id=chkLightAmbient onclick=JALI.toggleLightAmbient(); checked /> Ambient Light ' +
 				'<input type=color id=colLightAmbient value=#333333 > <output id=outLightAmbient >#33333</output><br>' +
@@ -19,12 +20,13 @@
 			'<p>' +
 				'<input type=checkbox id=chkLightCamera onclick=JALI.toggleLightCamera(); checked /> Light at camera position<br>' +
 				'<input type=color id=colLightCamera value=#333333 /> <output id=outLightCamera >#33333</output> ' +
-				' Intensity <input type=number id=numLightCameraIntensity min=0 step=0.1 value=0.5 style=width:40px; /><br>' +
+				'Intensity <input type=number id=numLightCameraIntensity min=0 step=0.1 value=0.5 style=width:40px; /><br>' +
 				'<input type=checkbox id=chkLightCameraHelper /> Display light helper ' +
 			'</p>' +
 			'<p>' +
-				'<input type=checkbox id=inpLightDirectional onclick=JALI.toggleLightDirectional( 110 ); checked /> Directional Light<br>' +
-
+				'<input type=checkbox id=chkLightPosition onclick=JALI.toggleLightPosition(110); checked /> Directional Light<br>' +
+				'<input type=color id=colLightPosition value=#333333 /> <output id=outLightPosition >#33333</output> ' +
+				'Intensity <input type=number id=numLightPositionIntensity min=0 step=0.1 value=0.5 style=width:40px; /><br>' +
 
 			'</p>' +
 			'<p>' +
@@ -36,10 +38,7 @@
 				'<output id=outpLightLon >90</output><br>' +
 			'</p>' +
 				'<p>' +
-				'<input type=checkbox id=chkLightDirectionalHelper /> Display light helper ' +
-			'</p>' +
-			'<p style=text-align:right; >' +
-				'<a class=button href=JavaScript:JA.toggleTab(JALI.lightsBox); >Close</a> ' +
+				'<input type=checkbox id=chkLightPositionHelper /> Display light helper ' +
 			'</p>' +
 		'';
 
@@ -47,13 +46,15 @@
 
 		colLightCamera.onchange = function() { JALI.lightCamera.color.setHex( this.value.replace("#", "0x") ); outLightCamera.value=this.value; };
 		numLightCameraIntensity.onclick = function() { JALI.lightCamera.intensity = this.value; };
-
 		chkLightCameraHelper.onchange = function() { JALI.lightCamera.shadowCameraVisible = chkLightCameraHelper.checked === true ? true : false; };
+
+		colLightPosition.onchange = function() { JALI.lightPosition.color.setHex( this.value.replace("#", "0x") ); outLightPosition.value=this.value; };
+		numLightPositionIntensity.onclick = function() { JALI.lightPosition.intensity = this.value; };
 
 		rngLightLat.onmousemove = function() { outpLightLat.value=this.value; JALI.updateLightPosition( rngLightLat.value, rngLightLon.value ); };
 		rngLightLon.onmousemove = function() { outpLightLon.value=this.value;  JALI.updateLightPosition( rngLightLat.value, rngLightLon.value ); };
 
-		chkLightDirectionalHelper.onchange = function() { JALI.lightDirectional.shadowCameraVisible = chkLightDirectionalHelper.checked === true ? true : false; };
+		chkLightPositionHelper.onchange = function() { JALI.lightPosition.shadowCameraVisible = chkLightPositionHelper.checked === true ? true : false; };
 	};
 
 
@@ -98,36 +99,36 @@ http://mrdoob.github.io/three.js/docs/#Reference/Lights/DirectionalLight
 
 */
 
-	JALI.toggleLightDirectional = function( d ) {
-		if ( inpLightDirectional.checked === true ) {
-			JALI.lightDirectional = new THREE.DirectionalLight( 0xffffff, 0.25 );  // 0xffffff 1.0
+	JALI.toggleLightPosition = function( d ) {
+		if ( chkLightPosition.checked === true ) {
+			JALI.lightPosition = new THREE.DirectionalLight( 0xffffff, 0.25 );  // 0xffffff 1.0
 //			JALI.lightDirectional = new THREE.SpotLight( 0xffffff, 1 );
 
 			JALI.updateLightPosition( rngLightLat.value, rngLightLon.value );
 
-			JALI.lightDirectional.castShadow = true;
+			JALI.lightPosition.castShadow = true;
 			d = d ? d : 80;
-			JALI.lightDirectional.shadowCameraLeft = -d;
-			JALI.lightDirectional.shadowCameraRight = d;
-			JALI.lightDirectional.shadowCameraTop = d;
-			JALI.lightDirectional.shadowCameraBottom = -d;
+			JALI.lightPosition.shadowCameraLeft = -d;
+			JALI.lightPosition.shadowCameraRight = d;
+			JALI.lightPosition.shadowCameraTop = d;
+			JALI.lightPosition.shadowCameraBottom = -d;
 
-			JALI.lightDirectional.shadowCameraNear = 100;
-			JALI.lightDirectional.shadowCameraFar = 400;
+			JALI.lightPosition.shadowCameraNear = 100;
+			JALI.lightPosition.shadowCameraFar = 400;
 
-//			JALI.lightDirectional.angle = 1; // spotlight only
+//			JALI.lightPosition.angle = 1; // spotlight only
 
 // can help stop appearance of gridlines in objects with opacity < 1
-			JALI.lightDirectional.shadowBias = -0.005; // default 0 ~ distance fron corners?
-//			JALI.lightDirectional.shadowDarkness = 0.5; // default 0.5
-//			JALI.lightDirectional.shadowMapWidth = 2048;  // default 512
-//			JALI.lightDirectional.shadowMapHeight = 2048;
-//			JALI.lightDirectional.shadowCameraVisible;
+			JALI.lightPosition.shadowBias = -0.005; // default 0 ~ distance fron corners?
+//			JALI.lightPosition.shadowDarkness = 0.5; // default 0.5
+//			JALI.lightPosition.shadowMapWidth = 2048;  // default 512
+//			JALI.lightPosition.shadowMapHeight = 2048;
+//			JALI.lightPosition.shadowCameraVisible;
 	
-			scene.add( JALI.lightDirectional );
+			scene.add( JALI.lightPosition );
 			JALI.updateMaterials( scene.children );
 		} else {
-			scene.remove( JALI.lightDirectional );
+			scene.remove( JALI.lightPosition );
 		}
 	};
 
@@ -143,12 +144,12 @@ http://mrdoob.github.io/three.js/docs/#Reference/Lights/DirectionalLight
 	JALI.updateLightPosition = function ( lat, lon ) {
 		var pi = Math.PI, pi05 = pi * 0.5, pi2 = pi + pi;
 		var d2r = pi / 180, r2d = 180 / pi;  // degrees / radians
-		function cos(a) {return Math.cos(a);}
-		function sin(a) {return Math.sin(a);}
-		var theta = lat * d2r;
+		function cos(a) { return Math.cos(a); }
+		function sin(a) { return Math.sin(a); }
+		var theta = lat * d2r; 
 		var phi = lon * d2r;
 		var radius = 300;
-		JALI.lightDirectional.position.x = radius * cos( theta ) * sin( phi );
-		JALI.lightDirectional.position.y = radius * sin( theta );
-		JALI.lightDirectional.position.z = radius * cos( theta ) * cos( phi );
+		JALI.lightPosition.position.x = radius * cos( theta ) * sin( phi );
+		JALI.lightPosition.position.y = radius * sin( theta );
+		JALI.lightPosition.position.z = radius * cos( theta ) * cos( phi );
 	};
