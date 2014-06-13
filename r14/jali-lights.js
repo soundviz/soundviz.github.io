@@ -7,7 +7,6 @@
 			'<a id=tabLight style=cursor:pointer; ><p class=button >' +
 				'<i class="fa fa-lightbulb-o"></i> Lights...' +
 			'</p></a>'; 
-//		tablight.style.cssText = 'cursor: auto; ' ;
 		tabLight.onclick = function() { JA.toggleTab( JALI.lightsBox ); }; 
 
 		JALI.lightsBox = tab.appendChild( document.createElement( 'div' ) );
