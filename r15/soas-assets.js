@@ -12,7 +12,6 @@
 	};
 
 	SOAS.updateGroundPlane = function( segments, base, scale) {
-
 		scene.remove( mesh );
 
 		geometry = new THREE.PlaneGeometry( 100, 100, segments - 1, segments - 1 );

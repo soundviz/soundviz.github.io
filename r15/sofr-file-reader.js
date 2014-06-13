@@ -39,10 +39,11 @@
 
 	SOFR.readCSVFile = function( that ) {
 		var reader = new FileReader();
-		divData.innerHTML = 'Loading...';
+		SOFR.fname = that.files[0].name
+		divMsg.innerHTML = 'Loading:<br>' + SOFR.fname;
+		JA.toggleDialogs(SOFR.FileReader );
 		reader.onload = function ( event ) { 
 			SOFR.processCSVData( event.target.result );
-			JA.toggleDialogs(SOFR.FileReader );
 			SOFR.startTime = new Date();
 		};
 		reader.readAsText( that.files[0] );
@@ -51,12 +52,12 @@
 	SOFR.processCSVData = function( data ) {
 		SOFR.frame = 0;
 		SOFR.heights = [];
-		var lines, length, sep = ',';
+		var lines, linesLength, length, sep = ',';
 		var base, min = 0, max = 0;
 
 		lines = data.split(/\n/);
-		length = lines.length;
-		for ( var i = 0; i < length; i++ ) {
+		linesLength = lines.length;
+		for ( var i = 0; i < linesLength; i++ ) {
 			SOFR.heights.push( lines[i].split( sep ) );
 		}
 
@@ -75,7 +76,8 @@
 		JA.update();
 
 		var txt =
-			'Frames Read: ' + length + '<br>' +
+			'File: ' + SOFR.fname + '<br>' +
+			'Frames Read: ' + linesLength + '<br>' +
 			'Elevations/frame: ' + length + '<br>' +
 			'Segments/side: ' + Math.sqrt( length ) + '<br>' +
 			'First height: ' + base + '<br>' +
@@ -83,6 +85,7 @@
 			'Max: ' + max + '<br>' +
 			'Vertical scale: ' + scale.toFixed(3) + '<br>';
 		divLoadTime.innerHTML = txt;
+		divMsg.innerHTML = '';
 	}
 
 	SOFR.readBinaryFile = function( that ) {
