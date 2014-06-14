@@ -85,7 +85,7 @@
 		mesh.geometry.computeFaceNormals();
 		mesh.geometry.computeVertexNormals();
 
-		if ( marker ) {
+		if ( marker && len === 15876 ) {
 			var i = 126 * parseInt(rngYCoordinate.value, 10) + parseInt( rngXCoordinate.value, 10 );
 			marker.position.set( vertices[i].x , scale * elevations[i], vertices[i].z );
 		}

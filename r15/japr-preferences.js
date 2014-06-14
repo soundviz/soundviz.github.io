@@ -9,7 +9,7 @@
 			'</p></a>';
 		tabPreferences.onclick = function() {JA.toggleTab( JAPR.PreferencesBox ); };
 
-		var segments = 126
+		var segments = 126;
 		JAPR.PreferencesBox = tab.appendChild( document.createElement( 'div' ) );
 		JAPR.PreferencesBox.style.cssText = 'cursor: auto; display: none; ' ;
 
@@ -21,8 +21,8 @@
 			'</p>' +
 			'<p>' +
 				'<input type=checkbox id=chkMarker /> Marker<br>' +
-				'X <input type=range id=rngXCoordinate min=1 max=' + segments + ' step=1 value=' + (0.5 * segments) + ' ><br>' +
-				'Y <input type=range id=rngYCoordinate min=1 max=' + segments + '  step=1 value=' + (0.5 * segments) + ' >' +
+				'X <input type=range id=rngXCoordinate min=1 max=126 step=1 value=63 /><br>' +
+				'Y <input type=range id=rngYCoordinate min=1 max=126 step=1 value=63 />' +
 			'</p>' +
 			'<h3 >Background</h3>' +
 			'<p>' +
@@ -69,9 +69,10 @@
 	};
 
 	JAPR.updateMarker = function () {
-			var vertices = mesh.geometry.vertices;
-			var i = 126 * parseInt(rngYCoordinate.value, 10) + parseInt( rngXCoordinate.value, 10 );
-			marker.position.set( vertices[i].x , JATH.selectedObject.position.y , vertices[i].z );
+		if ( !marker ) return;
+		var vertices = mesh.geometry.vertices;
+		var i = 126 * parseInt(rngYCoordinate.value, 10) + parseInt( rngXCoordinate.value, 10 );
+		marker.position.set( vertices[i].x , JATH.selectedObject.position.y , vertices[i].z );
 	}
 
 	JAPR.setMarker = function() {

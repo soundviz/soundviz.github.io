@@ -109,6 +109,7 @@ This repository contains files that are at an early and volatile stage. Not all 
 * Improves behavior of file open dialog
 * Add more downloadable data files
 * Add more online sample files
+* Add very preliminary  marker capability
 
 2014-06-13 ~ Theo
 
