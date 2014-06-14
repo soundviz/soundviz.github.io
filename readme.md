@@ -108,6 +108,7 @@ This repository contains files that are at an early and volatile stage. Not all 
 * R15 is up
 * Improves behavior of file open dialog
 * Add more downloadable data files
+* Add more online sample files
 
 2014-06-13 ~ Theo
 
