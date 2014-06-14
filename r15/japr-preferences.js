@@ -16,7 +16,11 @@
 			'<p>' +
 				'<input type=checkbox id=chkWires /> Wireframe<br>' +
 				'Vertical scale<br><input type=range id=rngVerticalScale min=1 max=100 step=1 value=50 >' +
-
+			'</p>' +
+			'<p>' +
+				'<input type=checkbox id=chkMarker /> Marker<br>' +
+				'X <input type=range id=rngXCoordinate min=1 max=126 step=1 value=50 ><br>' +
+				'Y <input type=range id=rngYCoordinate min=1 max=126 step=1 value=50 >' +
 			'</p>' +
 			'<h3 >Background</h3>' +
 			'<p>' +
@@ -47,7 +51,28 @@
 			JATH.selectedObject.scale.y = rngVerticalScale.value * 0.02 * JATH.selectedObject.scale.y; 
 			if ( wires ) { wires.scale.y = JATH.selectedObject.scale.y ; }
 		};
+
+//		chkMarker.checked = true;
+		chkMarker.onchange = function() {
+			if ( chkMarker.checked === true ) {
+				JAPR.setMarker();
+			} else {
+				scene.remove( marker );
+			}
+		}
+
 	};
+
+	JAPR.setMarker = function() {
+		scene.remove( marker );
+		geometry = new THREE.SphereGeometry( 2 );
+		material = new THREE.MeshPhongMaterial( { color: 0xffff00, emissive: 0x333333 } );
+		marker = new THREE.Mesh( geometry, material );
+		marker.castShadow = true;
+		marker.receiveShadow = true;
+		marker.position.set( 0, JATH.selectedObject.position.y , 0 );
+		scene.add( marker );
+	}
 
 	JAPR.setWireframe = function() {
 		scene.remove( wires );

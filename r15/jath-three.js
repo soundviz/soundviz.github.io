@@ -2,7 +2,7 @@
 	var JATH = {} || JATH;
 
 	var controls, renderer, stats, scene, camera;
-	var geometry, material, mesh, wires;
+	var geometry, material, mesh, wires, marker;
 
 	JATH.addThreeJS = function() {
 		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true, clearColor: 0xffffff }  );

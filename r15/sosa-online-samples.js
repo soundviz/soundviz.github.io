@@ -4,8 +4,8 @@
 	SOSA.sample2 = '../data-samples-online/film_int_signed_150-450.csv';
 	SOSA.sample3 = '../data-samples-online/film_int_signed_3470-3670.csv';
 
-	SOSA.sample4 = '../data-samples-online/film_int_signed_vel_first-part.csv';
-	SOSA.sample5 = '../data-samples-online/film_int_signed_vel_last-part.csv';
+	SOSA.sample4 = '../data-samples-online/film_int_signed_vel_first_part.csv';
+	SOSA.sample5 = '../data-samples-online/film_int_signed_vel_last_part.csv';
 	SOSA.sample6 = '../data-samples-online/film_tensor_first_part.csv';
 	SOSA.sample7 = '../data-samples-online/film_tensor_last_part.csv';
 
@@ -48,7 +48,8 @@
 	};
 
 	SOSA.runFile = function( fname ) {
-		divMsg.innerHTML = 'Loading<br>' + fname.substr( fname.lastIndexOf('/') + 1 );
+		SOFR.fname = fname.substr( fname.lastIndexOf('/') + 1 );
+		divMsg.innerHTML = 'Loading<br>' + SOFR.fname;
 		SOSA.requestFile( fname );
 		SOFR.startTime = new Date();
 		JA.toggleDialogs( SOSA.onlineSamples );

@@ -39,7 +39,7 @@
 
 	SOFR.readCSVFile = function( that ) {
 		var reader = new FileReader();
-		SOFR.fname = that.files[0].name
+		SOFR.fname = that.files[0].name;
 		divMsg.innerHTML = 'Loading:<br>' + SOFR.fname;
 		JA.toggleDialogs(SOFR.FileReader );
 		reader.onload = function ( event ) { 

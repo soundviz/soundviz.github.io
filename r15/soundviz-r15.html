@@ -66,7 +66,7 @@
 
 	JA.update = function() {
 //		if ( !JA.running ) return;
-		var vertices, elevations, len;
+		var vertices, len;
 		if ( !SOFR.heights || !SOFR.heights.length ) return;
 		if ( SOFR.frame >= SOFR.heights.length ) {
 			var nowTime = new Date();
@@ -84,6 +84,13 @@
 		mesh.geometry.verticesNeedUpdate = true;
 		mesh.geometry.computeFaceNormals();
 		mesh.geometry.computeVertexNormals();
+
+		if ( marker ) {
+			i = 126 * parseInt(rngYCoordinate.value, 10) + parseInt( rngXCoordinate.value, 10 );
+divMsg.innerHTML = rngYCoordinate.value + ' ' + rngXCoordinate.value + ' ' + i;
+// 			i = 6100;
+			marker.position.set( vertices[i].x , scale * elevations[ i], vertices[i].z );
+		}
 
 		divRunTime.innerHTML = 'Frame: ' + SOFR.frame;
 		SOFR.frame++;
