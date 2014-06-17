@@ -4,7 +4,7 @@ SoundViz Read Me
 ### Live Demo
 
 <iframe src="http://soundviz.github.io/latest/index.html" width=100% height=500px class='overview' >
-There is an `iframe` here. It is not visible when viewed on github.com. To view, please go to theo-armour.github.io. See 'Project Links' just below.
+There is an `iframe` here. It is not visible when viewed on github.com. To view, please go to soundviz.github.io.
 </iframe>
 _SoundViz R15_
 
