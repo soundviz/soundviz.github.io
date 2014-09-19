@@ -43,6 +43,6 @@
 		SOWI.msg.innerHTML =
 				'<div id=divLoadTime></div>' +
 				'<div id=divRunTime></div>' +
-				'<div id=divMsg >First, load a sample</div>' +
+				'<div id=divMsg >xxxx</div>' +
 			'';
 	};
