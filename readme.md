@@ -103,6 +103,14 @@ This repository contains files that are at an early and volatile stage. Not all 
 
 ### Change Log
 
+2015-01-12 ~ Theo
+
+* Add R17
+* Add normals need update > for much better rendering
+
+
+R16 had some fixes, but not sure
+
 2014-06-13 ~ Theo
 
 * R15 is up
