@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang=en >
 <head>
-<title>SoundViz R17</title>
+<title>SoundViz R17.1</title>
 <meta charset=utf-8 />
 <meta name=author content='Theo Armour' />
 <meta name=viewport content=width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0 />
@@ -68,7 +68,8 @@
 
 	JA.update = function() {
 //		if ( !JA.running ) return;
-		var elevations, vertices, len;
+		//elevations, 
+		var vertices, len;
 		if ( !SOFR.heights || !SOFR.heights.length ) return;
 		if ( SOFR.frame >= SOFR.heights.length ) {
 			var nowTime = new Date();
@@ -84,10 +85,6 @@
 			vertices[ i ].y = elevations[ i ];
 		}
 
-//		mesh.geometry.verticesNeedUpdate = true;
-//		mesh.geometry.computeFaceNormals();
-//		mesh.geometry.computeVertexNormals();
-
 		geometry.computeFaceNormals();
 		geometry.computeVertexNormals();
 
@@ -95,8 +92,8 @@
 		mesh.geometry.normalsNeedUpdate = true;
 
 		if ( marker && len === 15876 ) {
-			var i = 126 * parseInt(rngYCoordinate.value, 10) + parseInt( rngXCoordinate.value, 10 );
-			marker.position.set( vertices[i].x , scale * elevations[i], vertices[i].z );
+			var i = 126 * parseInt( rngYCoordinate.value, 10 ) + parseInt( rngXCoordinate.value, 10 );
+			marker.position.set( vertices[ i ].x , mesh.scale.y * elevations[ i ] + JATH.selectedObject.position.y, vertices[ i ].z );
 		}
 
 		divRunTime.innerHTML = 'Frame: ' + SOFR.frame;
@@ -105,6 +102,7 @@
 
 	JA.init();
 	JA.animate();
+
 </script>
 </body>
 </html>

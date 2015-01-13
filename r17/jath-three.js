@@ -18,7 +18,7 @@
 		THREE.ImageUtils.crossOrigin = 'anonymous';
 
 		JATH.stats = new Stats();
-		JATH.stats.domElement.style.cssText = 'bottom: 10px; cursor: auto; opacity: 0.5; position: absolute; right: 10px; ';
+		JATH.stats.domElement.style.cssText = 'top: 0px; cursor: auto; opacity: 0.5; position: absolute; right: 10px; ';
 		JATH.stats.domElement.title = 'Frames per second. Click to see ms per frame';
 		JA.menu.appendChild( JATH.stats.domElement );
 

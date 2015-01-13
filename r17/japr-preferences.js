@@ -21,8 +21,8 @@
 			'</p>' +
 			'<p>' +
 				'<input type=checkbox id=chkMarker /> Marker<br>' +
-				'X <input type=range id=rngXCoordinate min=1 max=126 step=1 value=63 /><br>' +
-				'Y <input type=range id=rngYCoordinate min=1 max=126 step=1 value=63 />' +
+				'X <input type=range id=rngXCoordinate min=0 max=125 step=1 value=63 /><br>' +
+				'Y <input type=range id=rngYCoordinate min=0 max=125 step=1 value=63 />' +
 			'</p>' +
 			'<h3 >Background</h3>' +
 			'<p>' +
@@ -40,12 +40,12 @@
 		selectColor.onchange = function() { JAPR.updateBackground( this.id ); };
 		selColor.onchange = function() { outBackColor.value = this.value; };
 
-		chkWires.checked = true;
+		chkWires.checked = false;
 		chkWires.onchange = function() {
 			if ( chkWires.checked === true ) {
 				JAPR.setWireframe();
 			} else {
-				scene.remove( wires );
+				JATH.scene.remove( wires );
 			}
 		}
 
@@ -62,7 +62,7 @@
 			if ( chkMarker.checked === true ) {
 				JAPR.setMarker();
 			} else {
-				scene.remove( marker );
+				JATH.scene.remove( marker );
 			}
 		}
 
@@ -71,12 +71,12 @@
 	JAPR.updateMarker = function () {
 		if ( !marker ) return;
 		var vertices = mesh.geometry.vertices;
-		var i = 126 * parseInt(rngYCoordinate.value, 10) + parseInt( rngXCoordinate.value, 10 );
+		var i = 126 * parseInt( rngYCoordinate.value, 10 ) + parseInt( rngXCoordinate.value, 10 );
 		marker.position.set( vertices[i].x , JATH.selectedObject.position.y , vertices[i].z );
 	}
 
 	JAPR.setMarker = function() {
-		scene.remove( marker );
+		JATH.scene.remove( marker );
 		geometry = new THREE.SphereGeometry( 2 );
 		material = new THREE.MeshPhongMaterial( { color: 0xffff00, emissive: 0x333333 } );
 		marker = new THREE.Mesh( geometry, material );

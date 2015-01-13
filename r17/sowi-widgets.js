@@ -1,7 +1,7 @@
 	var SOWI = {} || SOWI;
 
 	JA.titleIcon = '<i class="fa fa-music"></i>';
-	JA.TitleText = '"The hills are alive with the sound of music"';
+	JA.TitleText = '"The turbulences are alive with the sound of music"';
 
 	SOWI.addAbout = function() {
 		var tab = JA.menu.appendChild( document.createElement( 'div' ) );
@@ -18,7 +18,7 @@
 			'<h3>' + document.title + ' ' + JA.titleIcon + '</h3>' +
 			'<div><i><small>The hills are alive with the sound of music</small></i></div>' +
 			'<h4>Translates numerical sound data in ASCII format to 3D animations viewable in your browser</h4>' +
-			'<p>Data made available via  Dr Michele Ducceschi\'s research on wave turbulence in elastic plates. See also:</p>' +
+			'<p>Data made available via Dr Michele Ducceschi\'s research on wave turbulence in elastic plates. See also:</p>' +
 			'<ul>' +
 				'<li><a href="http://www.ness-music.eu/wp-content/uploads/2013/06/ducceschi_michele.pdf" target="_blank">Numerical Simulations of Wave Turbulence in Vibrating Plates</a></li>' +
 				'<li><a href="http://www.msc.univ-paris-diderot.fr/~berhanu/Ducceschi.pdf" target="_blank">Numerical Simulations of Wave Turbulence in Elastic Plates Using aFinite Difference Code</a></li>' +
@@ -29,7 +29,7 @@
 				'Credits: <a href="http://threejs.org" target="_blank">three.js</a> - ' +
 				'<a href="http://khronos.org/webgl/" target="_blank">WebGL</a> - ' +
 				'<a href="http://soundviz.github.io" target="_blank">SoundViz</a><br>' +
-				'copyright &copy; 2014 SoundViz authors ~ MIT license' +
+				'copyright &copy; 2015 SoundViz authors ~ MIT license' +
 			'</small><br><br>' +
 
 			'<p style=text-align:right; >' +
@@ -43,6 +43,6 @@
 		SOWI.msg.innerHTML =
 				'<div id=divLoadTime></div>' +
 				'<div id=divRunTime></div>' +
-				'<div id=divMsg >xxxx</div>' +
+				'<div id=divMsg >First, load a sample file...</div>' +
 			'';
 	};

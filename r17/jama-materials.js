@@ -41,7 +41,7 @@
 	};
 
 	JAMA.updateMaterial = function( key ) {
-
+console.log( key );
 		chkMaterial.checked = false;
 		JATH.materialKey = key;
 		JATH.selectedObject.material = JAMA.materials[ key ].set();

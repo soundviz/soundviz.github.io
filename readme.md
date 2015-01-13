@@ -6,11 +6,11 @@ SoundViz Read Me
 <iframe src="http://soundviz.github.io/latest/index.html" width=100% height=500px class='overview' >
 There is an `iframe` here. It is not visible when viewed on github.com. To view, please go to soundviz.github.io.
 </iframe>
-_SoundViz R15_
+_SoundViz (latest revision)_
 
 #### Welcome [MusICA Seminar]( http://www.musica.ed.ac.uk/archive/2014/michele-ducceschi/ ) Attendees!
 
-Fullscreen demo: [SoundViz R15]( http://soundviz.github.io/r15/soundviz-r15.html )  
+Fullscreen demo: [SoundViz (latest revision)]( http://soundviz.github.io/latest/index.html )  
 Web page: [Read Me]( http://soundviz.github.io/ "view the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >   
 Source code: [Source Code]( https://github.com/soundviz/ "View the files as source code." ) <scan style=display:none ><< You are now probably here.</scan>  
 
@@ -60,7 +60,7 @@ Source code: [Source Code]( https://github.com/soundviz/ "View the files as sour
 * Add frame-by-frame vertex coloring capability so, for example, vertices change color with height
 * Add auto-rotate after some number of seconds
 * Add permalinks
-* Add cutom textures
+* Add custom textures
 * Add Michele's abstract to readme
 
 
@@ -103,11 +103,21 @@ This repository contains files that are at an early and volatile stage. Not all 
 
 ### Change Log
 
+2015-01-13 ~ Theo
+
+* Add 'First, load a sample file...' message
+* Fixed reset view
+* Update copyright year
+* Fix display of wireframe and set default as off
+* Fix display of marker, possibly
+* Add scroll bar when needed
+* Set default material to red plastic
+* Move stts to top and adjust menu stuff 
+
 2015-01-12 ~ Theo
 
 * Add R17
 * Add normals need update > for much better rendering
-
 
 R16 had some fixes, but not sure
 

@@ -14,10 +14,11 @@
 	JA.addCSS = function() {
 		var css = document.body.appendChild( document.createElement('style') );
 		css.innerHTML = 'body { font: 600 12pt monospace; margin: 0; overflow: hidden; }' +
-			'h1 { margin: 0; }' +
+			'h1 { margin: 20px 0px 0px 0px; }' +
 			'a { text-decoration: none; opacity: 0.8; }' +
-			'#closer p { margin: 0; opacity: 0.8; }' +
-			'#movable { background-color: #ccc; opacity: 0.8; cursor: move; left: 20px; overflow: auto; padding: 10px; position: absolute; top: 20px; }' +
+			'#closer p { cursor: move; margin: 0; opacity: 0.8; }' +
+			'#movable { background-color: #ccc; height: ' + ( 0.8 * window.innerHeight ) + 'px; left: 20px; ' +
+				'opacity: 0.8; overflow: auto; padding: 10px; position: absolute; top: 20px; }' +
 			'.button { background-color: #eee; outline: 1px #aaa solid; padding: 5px; }' +
 		'';
 	};
@@ -47,7 +48,7 @@
 				'<a id=iconHome ><i class="fa fa-home"></i></a> ' +
 			'</h2>'; 
 		iconHome.title = "Reset to default view";
-		iconHome.href = 'JavaScript:TATH.resetCamera();'
+		iconHome.href = 'JavaScript:JATH.resetCamera();'
 	};
 
 	JA.toggleMenu = function(  ) {

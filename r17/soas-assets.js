@@ -12,18 +12,23 @@
 	};
 
 	SOAS.updateGroundPlane = function( segments, base, scale) {
+
 		JATH.scene.remove( mesh );
 
 		geometry = new THREE.PlaneGeometry( 100, 100, segments - 1, segments - 1 );
 		geometry.applyMatrix( new THREE.Matrix4().makeRotationX( Math.PI / 2 ) );
 
+/*
 		var texture = new THREE.ImageUtils.loadTexture( '../textures/im5.jpg' );
 		material = new THREE.MeshPhongMaterial( {
 			color: 0xffffff, map: texture, opacity: 1, transparent: true 
 		} );
+*/
 
-		material = new THREE.MeshNormalMaterial(); //JAMA.materials.PhongGreenSmooth;
-
+		material = new THREE.MeshNormalMaterial();
+//		material = JAMA.materials.PhongRedPlastic;
+//JAMA.updateMaterial( 'PhongRedPlastic' );
+		material = JAMA.materials[ 'PhongRedPlastic' ].set();
 		material.side = 2;
 		mesh = new THREE.Mesh( geometry, material );
 		mesh.position.y = -base * scale;
@@ -33,7 +38,7 @@
 		mesh.receiveShadow = true;
 		JATH.scene.add( mesh );
 
-		JAPR.setWireframe();
+		if ( chkWires.checked === true ) { JAPR.setWireframe(); }
 
 		JATH.selectedObject = mesh;
 	}
