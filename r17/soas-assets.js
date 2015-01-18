@@ -23,12 +23,28 @@
 		material = new THREE.MeshPhongMaterial( {
 			color: 0xffffff, map: texture, opacity: 1, transparent: true 
 		} );
-*/
+/*/
 
-		material = new THREE.MeshNormalMaterial();
+
+//		material = new THREE.MeshNormalMaterial();
 //		material = JAMA.materials.PhongRedPlastic;
 //JAMA.updateMaterial( 'PhongRedPlastic' );
-		material = JAMA.materials[ 'PhongRedPlastic' ].set();
+
+		material = new THREE.MeshPhongMaterial( {
+				ambient: 0xff0000,
+				color: 0xff0000,
+				emissive: 0x330000,
+				metal: true,
+				opacity: 1,
+				shading: THREE.SmoothShading,
+				shininess: 250,
+				side: 2,
+				specular: 0xff5555,
+				transparent: false,
+				wireframe: false
+		} );
+
+//		material = JAMA.materials[ 'NormalSmooth' ].set();
 		material.side = 2;
 		mesh = new THREE.Mesh( geometry, material );
 		mesh.position.y = -base * scale;

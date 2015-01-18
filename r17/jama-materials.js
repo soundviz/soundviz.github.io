@@ -44,7 +44,9 @@
 console.log( key );
 		chkMaterial.checked = false;
 		JATH.materialKey = key;
-		JATH.selectedObject.material = JAMA.materials[ key ].set();
+//		JATH.selectedObject.material = JAMA.materials[ key ].set();
+
+		JATH.selectedObject.material = new THREE.MeshNormalMaterial();
 //		divMsg3.innerHTML = 'Material: <b>' + JAMA.materials[ key ].title + '</b>';
 
 	};
