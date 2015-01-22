@@ -55,7 +55,7 @@ Source code: [Source Code]( https://github.com/soundviz/ "View the files as sour
 
 * Add more data files
 * Add ability to adjust color and intensity for all lights
-* Better selection of materials
+
 * Load partial files so can start playing faster
 * Add frame-by-frame vertex coloring capability so, for example, vertices change color with height
 * Add auto-rotate after some number of seconds
@@ -97,11 +97,21 @@ Bugs on browsers other than Chrome need not be reported until such time as the w
 
 ### Copyright and License
 
-[SoundViz copyright notice and license]( https://github.com/soundviz/copyright-notice-and-license.md )
+[SoundViz copyright notice and license]( https://github.com/soundviz/soundviz.github.io/blob/master/soundviz-copyright-and-mit-license.md )
 
 This repository contains files that are at an early and volatile stage. Not all licensing requirements may have been fully met let alone identified. It is the intension of the authors to play fair and all such requirements will either be met or the feature in question will turned off.
 
 ### Change Log
+
+2015-01-21 ~ Theo
+
+* Add R18
+* Include new materials system - simpler and lighter than before - also has more materials
+* Fix and update lights a bit
+* Add menu header which does not scroll
+* Update and fix copyright notice
+
+>> * Better selection of materials << in progress
 
 2015-01-13 ~ Theo
 

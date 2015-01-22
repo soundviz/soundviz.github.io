@@ -4,14 +4,14 @@ SoundViz Copyright Notice and License
 
 ## Copyright Notice for All SoundViz Works
 
-[soundviz.github.io]( http://jaanga.github.io/ )  
+[soundviz.github.io]( http://soundviz.github.io/ )  
 [github.com/soundviz]( https://github.com/soundviz/ )
 
-Copyright &copy; 2014 SoundViz authors
+Copyright &copy; 2015 SoundViz authors
 
 <br>
 
-## License for All Jaanga Works
+## License for All SoundViz Works
 
 The [MIT License](http://en.wikipedia.org/wiki/MIT_License)
 

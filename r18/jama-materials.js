@@ -16,35 +16,58 @@
 		JAMA.MaterialSelectTab = tab.appendChild( document.createElement( 'div' ) );
 		JAMA.MaterialSelectTab.style.cssText = 'cursor: auto; display: none; ';
 
-		var basic = '';
-		var envMap = '';
-		var title, category, txt;
+		var txt = '';
+
+/*
 		for ( var key in JAMA.materials ) {
-			title = JAMA.materials[key].title;
-			category = JAMA.materials[key].category;
-			txt = '<a href=# onclick="JAMA.updateMaterial( \'' + key + '\' );" >' + title + '</a><br>';
+//			title = JAMA.materials[key].title;
+//			category = JAMA.materials[key].category;
+			txt = '<a href=# onclick="JAMA.updateMaterial( \'' + key + '\' );" >' + key + '</a><br>';
 			if ( category === "Basic" ) {
 				basic += txt;
 			} else {
 				envMap +=  txt;
 			}
 		}
+*/
+
+		for ( var key in JAMA.materials ) {
+
+//console.log( matKeys[ i ].substr( 0, 1 ) );
+
+			if ( key.substr( 0, 1 ) === '<' ) {
+
+				txt += JAMA.materials[ key ];
+
+			} else {
+
+				txt += '<a href=# onclick="JAMA.updateMaterial( \'' + key + '\' );" >' + key + '</a><br>';
+
+			}
+
+		}
+
+//		materials.innerHTML = txt;
 
 		JAMA.MaterialSelectTab.innerHTML =
-			'<input type=checkbox id=chkMaterial > Use default material' +
-			'<h3 style=margin:0; >Basic</h3>' +
-			basic +
-			'<h3 style=margin:0; >Evironment Map</h3>' +
-			envMap +
+			'<input type=checkbox id=chkMaterial > Use default material' + 
+				txt +
+
+//			'<h3 style=margin:0; >Basic</h3>' +
+//			basic +
+//			'<h3 style=margin:0; >Evironment Map</h3>' +
+//			envMap +
 		'';
 
 	};
 
 	JAMA.updateMaterial = function( key ) {
-console.log( key );
+//console.log( key );
 		chkMaterial.checked = false;
 		JATH.materialKey = key;
-		JATH.selectedObject.material = JAMA.materials[ key ].set();
+		JATH.selectedObject.material = JAMA.materials[ key ];
+		JATH.selectedObject.material.side = 2;
+		JATH.selectedObject.material.needsUpdate = true;
 
 //		JATH.selectedObject.material = new THREE.MeshNormalMaterial();
 //		divMsg3.innerHTML = 'Material: <b>' + JAMA.materials[ key ].title + '</b>';
