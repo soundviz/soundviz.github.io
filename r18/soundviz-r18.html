@@ -30,6 +30,7 @@
 
 <script>
 	var marker;
+	var mouseDown;
 
 	JA.init = function() {
 		JA.running = false;
@@ -59,7 +60,14 @@
 		SOAS.addAssets();
 
 		window.addEventListener('mouseup', JA.mouseUp, false);
+		window.addEventListener('mouseDown', JA.mouseUp, false);
 		window.addEventListener( 'resize', JA.onWindowResize, false );
+	}
+
+	JA.MouseDown = function( event ) {
+
+		mouseDown = true;
+
 	}
 
 	JA.animate = function() {
@@ -67,6 +75,23 @@
 		JATH.controls.update();
 		
 		if ( JA.running ) JA.update();
+
+		if ( !mouseDown ) {
+			time = Date.now() * 0.001;
+//			time = timestamp;// * 0.001;
+
+			rx = Math.sin( time * 0.7 ) * 0.5;
+				ry = Math.sin( time * 0.3 ) * 0.5;
+				rz = Math.sin( time * 0.2 ) * 0.5;
+
+			JATH.camera.position.x += rx;
+			JATH.camera.position.x += ry;
+			JATH.camera.position.y += rz;
+
+			JATH.camera.lookAt( JATH.scene.position );
+
+		}
+
 		JATH.stats.update();
 		JATH.renderer.render( JATH.scene, JATH.camera );
 	}

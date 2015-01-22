@@ -57,9 +57,9 @@
 	};
 
 	JA.toggleMenu = function(  ) {
-		var toggle = JA.menu.children[1].style.display === 'none' ? '' : 'none';
-		for (var i = 1; i < JA.menu.children.length; i++) {
-			JA.menu.children[i].style.display = toggle;
+		var toggle = JA.menuHeader.children[1].style.display === 'none' ? '' : 'none';
+		for (var i = 1; i < JA.menuHeader.children.length; i++) {
+			JA.menuHeader.children[i].style.display = toggle;
 		}
 	};
 
