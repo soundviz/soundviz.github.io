@@ -63,17 +63,18 @@
 		SOSA.xmlhttp.send( null );
 	};
 
+	count = 0;
 	function callback() {
 		if ( SOSA.xmlhttp.readyState == 4  ) {
 			data = SOSA.xmlhttp.responseText;
 			SOFR.processCSVData( data );
 
 		} else {
-//			msg.innerHTML = 'waiting '; // + new Date() + '<br>' +  
-				SOSA.xmlhttp.readyState + '<br>' + 
+			divMsg.innerHTML.innerHTML += 'waiting ' + count++; // + new Date() + '<br>' +  
+			SOSA.xmlhttp.readyState + '<br>' + 
 //				xmlhttp.response + '<br>' +  
-				SOSA.xmlhttp.status + '<br>' + 
-				SOSA.xmlhttp.statusText;
+			SOSA.xmlhttp.status + '<br>' + 
+			SOSA.xmlhttp.statusText;
 			'';
 		}
 	};
