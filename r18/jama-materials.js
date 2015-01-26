@@ -66,7 +66,10 @@
 		chkMaterial.checked = false;
 		JATH.materialKey = key;
 		JATH.selectedObject.material = JAMA.materials[ key ];
-		JATH.selectedObject.material.side = 2;
+
+//		JATH.selectedObject.material = new THREE.MeshNormalMaterial( { shading: THREE.SmoothShading, side: 2 });
+
+//		JATH.selectedObject.material.side = 2;
 		JATH.selectedObject.material.needsUpdate = true;
 
 //		JATH.selectedObject.material = new THREE.MeshNormalMaterial();

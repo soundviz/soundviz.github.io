@@ -3,17 +3,21 @@
 
 // materials
 
+	function materialsInit() {
+
 		var r = "../textures/cube/skybox/";
 		var urls = [ r + "px.jpg", r + "nx.jpg", r + "py.jpg", r + "ny.jpg", r + "pz.jpg", r + "nz.jpg" ];
 
-		var textureCube = THREE.ImageUtils.loadTextureCube( urls );
+		textureCube = THREE.ImageUtils.loadTextureCube( urls );
 		textureCube.format = THREE.RGBFormat;
 
 		var color =  Math.random() * 0xffffff;
 
+
 		JAMA.materials = {
 			'<Standard': '<div><h3 style=display:inline; >Car Colors</h3> <a href=http://mrdoob.github.io/three.js/examples/#webgl_materials_cars target="_blank" ><i>source</i></a></div>',
 // http://mrdoob.github.io/three.js/examples/#webgl_materials_cars
+
 			"Orange": 	new THREE.MeshLambertMaterial( { color: 0xff6600, ambient: 0xff2200, envMap: textureCube, combine: THREE.MixOperation, reflectivity: 0.3 } ),
 			"Blue": 	new THREE.MeshLambertMaterial( { color: 0x001133, ambient: 0x001133, envMap: textureCube, combine: THREE.MixOperation, reflectivity: 0.3 } ),
 			"Red": 		new THREE.MeshLambertMaterial( { color: 0x660000, ambient: 0x330000, envMap: textureCube, combine: THREE.MixOperation, reflectivity: 0.25 } ),
@@ -23,7 +27,7 @@
 			"Carmine": 	new THREE.MeshPhongMaterial( { color: 0x770000, specular:0xffaaaa, envMap: textureCube, combine: THREE.MultiplyOperation } ),
 			"Gold": 	new THREE.MeshPhongMaterial( { color: 0xaa9944, specular:0xbbaa99, shininess:50, envMap: textureCube, combine: THREE.MultiplyOperation } ),
 			"Bronze":	new THREE.MeshPhongMaterial( { color: 0x150505, specular:0xee6600, shininess:10, envMap: textureCube, combine: THREE.MixOperation, reflectivity: 0.25 } ),
-			"Chrome": 	new THREE.MeshPhongMaterial( { color: 0xffffff, specular:0xffffff, envMap: textureCube, combine: THREE.Multiply } ),
+			"Chrome": 	new THREE.MeshPhongMaterial( { color: 0xffffff, specular:0xffffff, envMap: textureCube, combine: THREE.MultiplyOperation } ),
 
 			'<metal' : '<br>',
 			"Orange metal": new THREE.MeshLambertMaterial( { color: 0xff6600, ambient: 0xff2200, envMap: textureCube, combine: THREE.MultiplyOperation } ),
@@ -156,7 +160,9 @@
 
 // 			"": new THREE.MeshPhongMaterial( { envMap: new THREE.ImageUtils.loadTextureCube( [ '../textures/lavatile.jpg', '../textures/lavatile.jpg', '../textures/lavatile.jpg', '../textures/lavatile.jpg', '../textures/lavatile.jpg', '../textures/lavatile.jpg' ] )   } )
 
-		}
+		};
+
+	}
 
 
 /*

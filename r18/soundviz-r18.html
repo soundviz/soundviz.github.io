@@ -8,11 +8,7 @@
 <link rel=stylesheet href=http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css />
 </head>
 <body>
-<!--
 <script src=http://mrdoob.github.io/three.js/build/three.min.js ></script>
--->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r69/three.min.js'></script>
-
 <script src=http://mrdoob.github.io/three.js/examples/js/controls/TrackballControls.js ></script>
 <script src=http://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
 
@@ -31,7 +27,9 @@
 <script>
 	var marker;
 	var mouseDown;
-		window.addEventListener('mousedown', JA.mouseDown, false);
+
+	window.addEventListener('mousedown', JA.mouseDown, false);
+
 	JA.init = function() {
 		JA.running = false;
 		JA.container = document.body.appendChild( document.createElement( 'div' ) );
@@ -47,6 +45,7 @@
 		SOFR.addFileReader();
 
 		JALI.addLightsBox();
+
 		JAMA.addMaterialSelectTab();
 		JAMA.addMaterialEditorTab();
 		JAPR.addPreferencesBox();
@@ -65,7 +64,7 @@
 	}
 
 	JA.mouseDown = function( event ) {
-console.log( 'kkk');
+
 		mouseDown = true;
 
 	}

@@ -1,12 +1,14 @@
 	var SOAS = {} || SOAS;
 
 	SOAS.addAssets = function() {
+
 		JAPR.setRandomGradient();
 		JATH.addDefaults();
 
 		JALI.toggleLightAmbient();
 		JALI.toggleLightCamera();
 		JALI.toggleLightPosition( 110 );
+
 		SOAS.updateGroundPlane( 126, 20, 1 );
 
 	};
@@ -23,7 +25,7 @@
 		material = new THREE.MeshPhongMaterial( {
 			color: 0xffffff, map: texture, opacity: 1, transparent: true 
 		} );
-/*/
+*/
 
 
 //		material = new THREE.MeshNormalMaterial();
@@ -35,7 +37,7 @@
 				color: 0xff0000,
 				emissive: 0x330000,
 				metal: true,
-				opacity: 1,
+				opacity: 1
 				shading: THREE.SmoothShading,
 				shininess: 250,
 				side: 2,
@@ -44,7 +46,13 @@
 				wireframe: false
 		} );
 */
+
+materialsInit();
+
+//		material = new THREE.MeshLambertMaterial( { color: 0xff6600, ambient: 0xff2200, envMap: textureCube, combine: THREE.MixOperation, reflectivity: 0.3 } ),
+//		material = JAMA.materials[ 'Orange' ];
 		material = JAMA.materials[ 'Phong Red Plastic' ];
+
 		material.side = 2;
 		mesh = new THREE.Mesh( geometry, material );
 		mesh.position.y = -base * scale;
