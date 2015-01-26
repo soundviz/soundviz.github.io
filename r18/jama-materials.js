@@ -4,6 +4,9 @@
 
 	JAMA.addMaterialSelectTab = function() {
 
+// temp
+materialsInit();
+
 		var tab = JA.menu.appendChild( document.createElement( 'div' ) );
 		tab.title = 'Choose from a number of materials to apply to the surface';
 		tab.innerHTML =
@@ -65,14 +68,14 @@
 //console.log( key );
 		chkMaterial.checked = false;
 		JATH.materialKey = key;
-		JATH.selectedObject.material = JAMA.materials[ key ];
-
-//		JATH.selectedObject.material = new THREE.MeshNormalMaterial( { shading: THREE.SmoothShading, side: 2 });
-
-//		JATH.selectedObject.material.side = 2;
-		JATH.selectedObject.material.needsUpdate = true;
 
 //		JATH.selectedObject.material = new THREE.MeshNormalMaterial();
+//		JATH.selectedObject.material = new THREE.MeshNormalMaterial( { shading: THREE.SmoothShading, side: 2 });
+
+		JATH.selectedObject.material = JAMA.materials[ key ];
+		JATH.selectedObject.material.side = 2;
+		JATH.selectedObject.material.needsUpdate = true;
+
 //		divMsg3.innerHTML = 'Material: <b>' + JAMA.materials[ key ].title + '</b>';
 
 	};

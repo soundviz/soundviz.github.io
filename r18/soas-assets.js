@@ -47,7 +47,6 @@
 		} );
 */
 
-materialsInit();
 
 //		material = new THREE.MeshLambertMaterial( { color: 0xff6600, ambient: 0xff2200, envMap: textureCube, combine: THREE.MixOperation, reflectivity: 0.3 } ),
 //		material = JAMA.materials[ 'Orange' ];

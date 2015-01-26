@@ -13,7 +13,6 @@
 
 		var color =  Math.random() * 0xffffff;
 
-
 		JAMA.materials = {
 			'<Standard': '<div><h3 style=display:inline; >Car Colors</h3> <a href=http://mrdoob.github.io/three.js/examples/#webgl_materials_cars target="_blank" ><i>source</i></a></div>',
 // http://mrdoob.github.io/three.js/examples/#webgl_materials_cars
