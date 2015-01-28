@@ -5,6 +5,7 @@
 	JAMA.addMaterialSelectTab = function() {
 
 // temp
+
 materialsInit();
 
 		var tab = JA.menu.appendChild( document.createElement( 'div' ) );

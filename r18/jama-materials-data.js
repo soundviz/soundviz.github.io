@@ -1,8 +1,6 @@
 	JAMA.materials = {} || JAMA.materials;
 
 
-// materials
-
 	function materialsInit() {
 
 		var r = "../textures/cube/skybox/";
