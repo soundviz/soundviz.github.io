@@ -23,6 +23,7 @@ Source code: [Source Code]( https://github.com/soundviz/ "View the files as sour
 
 * Translate numeric sound data in ASCII format to 3D animations viewable in your browser
 * Data from Dr Michele Ducceschi's research on wave turbulence in elastic plates
+	* <https://hal-ensta.archives-ouvertes.fr/hal-01135260/file/WT_hal.pdf>
 	* <http://ume.ensta-paristech.fr/dfa-theses-et-livres_lang_EN_menu_1>
 	* <http://www.msc.univ-paris-diderot.fr/~berhanu/Ducceschi.pdf>
 	* <http://www.ness-music.eu/wp-content/uploads/2013/06/ducceschi_michele.pdf>
